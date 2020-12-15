@@ -1,7 +1,7 @@
 
-describe 'Forms de Login' do
+describe 'Forms de Login', :login do
 
-    before(:all) do
+    before(:each) do
 
         #urls de teste
         @url_pos_login = 'https://training-wheels-protocol.herokuapp.com/secure'
@@ -18,13 +18,13 @@ describe 'Forms de Login' do
         @email_invalido = 'lucas'
         @senha_invalida = '112233'
 
-    end
-
-    it 'Login com Email e Senha validos' do
-
         #Acessando tela de Login 
         visit @url_pre_login
         page.windows[0].maximize
+
+    end
+
+    it 'Login com Email e Senha validos' do
 
         #Realizando login
         fill_in 'userId', with: @email_valido
@@ -39,10 +39,6 @@ describe 'Forms de Login' do
     end
 
     it 'Login com Email inválido' do
-
-        #Acessando tela de Login 
-        visit @url_pre_login
-        page.windows[0].maximize
 
         #Realizando login
         fill_in 'userId', with: @email_invalido
@@ -59,10 +55,6 @@ describe 'Forms de Login' do
 
     it 'Login com Email válido e Senha inválida' do
 
-        #Acessando tela de Login 
-        visit @url_pre_login
-        page.windows[0].maximize
-
         #Realizando login
         fill_in 'userId', with: @email_valido
         fill_in 'password', with: @senha_invalida
@@ -77,10 +69,6 @@ describe 'Forms de Login' do
     end 
 
     it 'Login com Email e Senha em branco' do
-
-        #Acessando tela de Login 
-        visit @url_pre_login
-        page.windows[0].maximize
 
         #Realizando login
         fill_in 'password', with: ''
