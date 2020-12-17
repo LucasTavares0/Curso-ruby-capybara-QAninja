@@ -29,8 +29,7 @@ describe 'Upload de arquivos', :upload do
         #anexando arquivo 
         attach_file('file-upload', @arquivo_imagem)
         click_button 'file-submit'
-        sleep 5
-
+    
         expect(find('#new-image')[:src]).to include 'Imagem-upload.jpg'
     end
 end
